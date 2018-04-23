@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        select {
+          width: 150px;
+          height: 400px;
+          font-size: 20px;
+          background-color: teal;
+        }
+      </style>
+    </head>
+    <body>
+    
+    <select id="source" multiple>
+      <option>娟娟</option>
+      <option>飞飞</option>
+      <option>芹芹</option>
+      <option>聪聪</option>
+      <option>方方</option>
+      <option>阁阁</option>
+      <option>健健</option>
+      <option>玉玉</option>
+      <option>军军</option>
+    </select>
+    
+    <button id="btn1"> &gt;&gt; </button>
+    <button id="btn2"> &lt;&lt; </button>
+    <button id="btn3"> &gt; </button>
+    <button id="btn4"> &lt; </button>
+    <select id="target" multiple>
+    
+    </select>
+    
+    <script>
+        var target = document.getElementById("target");
+        var source = document.getElementById("source");
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        var btn4 = document.getElementById("btn4");
+
+        btn1.onclick = function () {
+          var options = source.children;
+          for (var i = 0; i < options.length; i++) {
+            target.appendChild(options[i]);
+            i--;
+          }            
+        }
+        
+        btn2.onclick = function () {
+          var options = target.children;        
+          for (var i = 0; i < options.length; i++) {
+            source.appendChild(options[i]);
+            i--;
+          }            
+        }
+        
+        btn3.onclick = function () {
+          var options = source.children;
+          for (var i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+              target.appendChild(options[i]);
+              i--;
+            }
+          }        
+        }
+
+        btn4.onclick = function () {
+          var options = target.children;
+          for (var i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+              source.appendChild(options[i]);
+              i--;
+            }
+          }        
+        }
+    </script>
+</body>
+</html>

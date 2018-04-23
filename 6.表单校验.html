@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 判断用户名，如果长度不是2-6，提示用户
+    判断密码，长度6-12位 -->
+
+        用户名：<input type="text" id="txtName"><span></span><br>
+        密码：<input type="password" id="txtPwd"><span></span><br> 
+        <button id="btn">提交</button>       
+    <script>
+        var txtName = document.getElementById("txtName");
+        var btn = document.getElementById("btn");
+        txtName.onkeyup = function () {
+            var content = txtName.value;
+            var isSoft1 = true;
+            if (content.length < 2 || content.length > 6) {
+                isSoft1 = true;
+                txtName.nextElementSibling.innerText = "请输入2-6位数";
+                txtName.nextElementSibling.style.color = "red";
+            } else {
+                txtName.nextElementSibling.innerText = "正确";
+                txtName.nextElementSibling.style.color = "green";
+            }
+        }
+        var txtPwd = document.getElementById("txtPwd");
+        txtPwd.onkeyup = function () {
+            var content1 = txtPwd.value;
+            var isSoft2 = true;
+            if (content1.length < 6 || content1.length > 12) {
+                isSoft2 = true;
+                txtPwd.nextElementSibling.innerText = "请输入6-12位数";
+                txtPwd.nextElementSibling.style.color = "red";
+            } else {
+                txtPwd.nextElementSibling.innerText = "正确";
+                txtPwd.nextElementSibling.style.color = "green";
+            }
+        }
+        if(!(isSoft1 == true && isSoft2 == true)) {
+            btn.disabled = false;
+        }
+    </script>
+</body>
+</html>
